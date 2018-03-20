@@ -79,9 +79,9 @@
     {"id": "Mme.Hucheloup", "group": 8}
   ],
   "links": [
-    {"source": "Napoleon", "target": "Myriel", "value": 1},
-    {"source": "Mlle.Baptistine", "target": "Myriel", "value": 8},
-    {"source": "Mme.Magloire", "target": "Myriel", "value": 10},
+    {"source": "Napoleon", "target": "Myriel", "value": 1, "relation":"挚友"},
+    {"source": "Mlle.Baptistine", "target": "Myriel", "value": 8, "relation":"挚友"},
+    {"source": "Mme.Magloire", "target": "Myriel", "value": 10, "relation":"挚友"},
     {"source": "Mme.Magloire", "target": "Mlle.Baptistine", "value": 6},
     {"source": "CountessdeLo", "target": "Myriel", "value": 1},
     {"source": "Geborand", "target": "Myriel", "value": 1},
@@ -118,7 +118,7 @@
     {"source": "Zephine", "target": "Blacheville", "value": 3},
     {"source": "Zephine", "target": "Favourite", "value": 4},
     {"source": "Zephine", "target": "Dahlia", "value": 4},
-    {"source": "Fantine", "target": "Tholomyes", "value": 3},
+    {"source": "Fantine", "target": "Tholomyes", "value": 3, "relation":"挚友"},
     {"source": "Fantine", "target": "Listolier", "value": 3},
     {"source": "Fantine", "target": "Fameuil", "value": 3},
     {"source": "Fantine", "target": "Blacheville", "value": 3},

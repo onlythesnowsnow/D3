@@ -86,7 +86,8 @@ d3.json("miserables.json", function(error, graph) {
   //为人物节点绑定文字
   node.append("title")
       .text(function(d) { return d.id; });
-
+  link.append("title")
+	  .text(function(d) { return d.relation; });
   // 为力模拟器绑定节点数据
   // 会为每个节点自动添加可视化时所需的index,vx,xy,x,y五个字段信息
   // 并且为simulation内部计时器tick监听绑定动作，来绘制图形
