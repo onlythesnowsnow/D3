@@ -74,7 +74,7 @@ d3.json("miserables.json", function(error, graph) {
     .data(graph.nodes)
     .enter().append("circle")
 		// 设置节点半径
-      .attr("r", 5)
+      .attr("r", 10)
 	  // 设置节点的填充色，通过节点的group属性来计算节点的填充颜色
       .attr("fill", function(d) { return color(d.group); })
       // 以定义的这些人物节点为参数，调用drag()函数
@@ -83,9 +83,20 @@ d3.json("miserables.json", function(error, graph) {
           .on("start", dragstarted)
           .on("drag", dragged)
           .on("end", dragended));
+		  
+		  
   //为人物节点绑定文字
-  node.append("title")
-      .text(function(d) { return d.id; });
+  var node_text = svg.append("g")
+		.attr("class","nodes")
+	  .selectAll("text")
+	  .data(graph.nodes)
+	  .enter().append("text")
+	    .style("fill", "black")
+		.attr("dx", 5)
+		.attr("dy", 8)
+		.text(function(d) { return d.id; });
+  //node.append("title")
+      //.text(function(d) { return d.id; });
   link.append("title")
 	  .text(function(d) { return d.relation; });
   // 为力模拟器绑定节点数据
@@ -116,6 +127,10 @@ d3.json("miserables.json", function(error, graph) {
     node
         .attr("cx", function(d) { return d.x; })
         .attr("cy", function(d) { return d.y; });
+		
+	node_text
+		.attr("x",function(d) { return d.x; })
+		.attr("y", function(d) { return d.y; });
   }
 });
 
