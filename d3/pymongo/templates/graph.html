@@ -13,9 +13,12 @@
 
     <div id="main" style="width: 1000px;height:1000px;"></div>
     <script type="text/javascript">
+    function toJson(str){
+    return JSON.parse(str);
+    }
     //var js_data = document.getElementById('dataid').getAttribute('d');
 	var myChart = echarts.init(document.getElementById('main'));
-	var js_data = {{data}}
+	var js_data = toJson({{data|tojson}})
 option = {
     backgroundColor: new echarts.graphic.RadialGradient(0.3, 0.3, 0.8, [{
         offset: 0,
@@ -60,7 +63,7 @@ option = {
           force: {
               repulsion: 50
           },
-          data:{{js_data}} ,
+          data: js_data ,
           links: [{
               "source": "广州大学",
               "target": "计算机科学与教育软件学院"

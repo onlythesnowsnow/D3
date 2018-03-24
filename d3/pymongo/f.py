@@ -13,11 +13,11 @@ app.config['DEBUG'] = True
 
 @app.route('/')
 def index():
-    context = {
-        'username': u'dddd',
-        'gender': u'man',
-        'age': 18
-    }
+    context = [
+        {'_id':'打飞机可', 'data':12},
+        {'_id':'的九分裤', 'data':22},
+        {'_id':3, 'data':'cc'}
+    ]
     data = [{
               "name": u"广州大学",
                "x": 0,
@@ -837,7 +837,7 @@ def index():
               "draggable": "true",
               "value": 1
           }]
-    data = data.decode('gbk')
+    data = json.dumps(data)
     #my_conn = MongoConn()
     #json.dumps(data)
     #res=my_conn.db['mytest'].find({})

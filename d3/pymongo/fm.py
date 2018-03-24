@@ -38,9 +38,9 @@ if __name__ == "__main__":
         {'_id':3, 'data':'cc'}
     ]
     #插入数据，'mytest'是上文中创建的表名
-    my_conn.db['mytest'].insert(datas)
+    #my_conn.db['mytest'].insert(datas)
     #查询数据，'mytest'是上文中创建的表名
-    res=my_conn.db['mytest'].find({})
+    res=my_conn.db['nr'].find({})
     for k in res:
         print k
 
