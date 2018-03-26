@@ -19,6 +19,8 @@
 	var myChart = echarts.init(document.getElementById('main'));
 	var js_data1 = toJson({{data1|tojson}})
 	var js_data2 = toJson({{data2|tojson}})
+	var js_data3 = toJson({{data3|tojson}})
+	var js_data4 = toJson({{data4|tojson}})
 option = {
     backgroundColor: new echarts.graphic.RadialGradient(0.3, 0.3, 0.8, [{
         offset: 0,
@@ -43,7 +45,7 @@ option = {
     },
           selectedMode: 'false',
           bottom: 20,
-          data: ['百年附加住院津贴型医疗保险', '附加特约疾病保险B款', '平安女性安康团体疾病保险', '招商信诺住院定额给付医疗保险（B款）', '安联安盈稳利两全保险（万能型）']
+          data: js_data3
       }],
       toolbox: {
         show : true,
@@ -65,17 +67,7 @@ option = {
           },
           data: js_data1 ,
           links: js_data2,
-          categories: [{
-              'name': '百年附加住院津贴型医疗保险'
-          }, {
-              'name': '附加特约疾病保险B款'
-          }, {
-              'name': '平安女性安康团体疾病保险'
-          }, {
-              'name': '招商信诺住院定额给付医疗保险（B款）'
-          }, {
-              'name': '安联安盈稳利两全保险（万能型）'
-          }],
+          categories: js_data4,
           focusNodeAdjacency: true,
           roam: true,
           label: {
