@@ -48,6 +48,7 @@ if __name__ == "__main__":
         for k in res:
             data.append(k)
 
+
     #for i in data:
         #nodes.extend(i["nodes"])
         #links.extend(i["relations"])
@@ -55,6 +56,7 @@ if __name__ == "__main__":
     nodes = data[1]["nodes"]
     links = data[1]["relations"]
 
+    '''
     category = []
     Category = []
     temp = {}
@@ -64,6 +66,6 @@ if __name__ == "__main__":
         Category.append(temp)
     print category
     print Category
+    '''
 
-    #print nodes
-    #print links
+

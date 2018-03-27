@@ -16,29 +16,31 @@ app.config['DEBUG'] = True
 def index():
 
     my_conn = MongoConn()
-    res = my_conn.db['nr6'].find({}).limit(5)
+    res = my_conn.db['nrs'].find({}).limit(15)
     data = []
     nodes = []
     links = []
 
-    for i in range(5):
+    for i in range(15):
         for k in res:
             data.append(k)
 
-    #for i in data:
-        #nodes.extend(i["nodes"])
-        #links.extend(i["relations"])
+    for i in data:
+        nodes.extend(i["nodes"])
+        links.extend(i["relations"])
 
-    nodes = data[1]["nodes"]
-    links = data[1]["relations"]
+    for index, node in enumerate(nodes):
+        nodes[index]["symbolSize"] *= 2
+    #nodes = data[0]["nodes"]
+    #links = data[0]["relations"]
 
     data1 = json.dumps(nodes)
     data2 = json.dumps(links)
 
-
     category = []
     Category = []
-    for i in range(5):
+
+    for i in range(15):
         temp = {}
         category.append(data[i]["nodes"][0]["category"])
         temp["name"] = data[i]["nodes"][0]["category"]
