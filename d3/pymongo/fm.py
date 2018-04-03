@@ -5,7 +5,7 @@ import traceback
 import json
 
 MONGODB_CONFIG = {
-    'host': '10.246.10.53',
+    'host': '10.246.53.53',
     'port': 27017,
     'db_name': 'ip_db',
     'username': None,

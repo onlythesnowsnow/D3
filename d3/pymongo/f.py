@@ -16,21 +16,20 @@ app.config['DEBUG'] = True
 def index():
 
     my_conn = MongoConn()
-    res = my_conn.db['nr6'].find({}).limit(5)
+    res = my_conn.db['product_type_and_name'].find({})
     data = []
     nodes = []
     links = []
 
-    for i in range(5):
-        for k in res:
-            data.append(k)
+    for k in res:
+        data.append(k)
 
-    #for i in data:
-        #nodes.extend(i["nodes"])
-        #links.extend(i["relations"])
+    for i in data:
+        nodes.extend(i["nodes"])
+        links.extend(i["relations"])
 
-    nodes = data[1]["nodes"]
-    links = data[1]["relations"]
+    for index, node in enumerate(nodes):
+        nodes[index]["symbolSize"] *= 2
 
     data1 = json.dumps(nodes)
     data2 = json.dumps(links)
@@ -38,16 +37,17 @@ def index():
 
     category = []
     Category = []
-    for i in range(5):
+
+    for i in range(len(data[0]["nodes"])):
         temp = {}
-        category.append(data[i]["nodes"][0]["category"])
-        temp["name"] = data[i]["nodes"][0]["category"]
+        category.append(data[0]["nodes"][i]["category"])
+        temp["name"] = data[0]["nodes"][i]["category"]
         Category.append(temp)
 
     data3 = json.dumps(category)
     data4 = json.dumps(Category)
 
-    return render_template('graph.html',data1 = data1,data2 = data2,data3 = data3,data4 = data4)
+    return render_template('graph2.html',data1 = data1,data2 = data2,data3 = data3,data4 = data4)
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1')

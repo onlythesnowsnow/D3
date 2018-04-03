@@ -16,12 +16,12 @@ app.config['DEBUG'] = True
 def index():
 
     my_conn = MongoConn()
-    res = my_conn.db['nrs'].find({}).limit(15)
+    res = my_conn.db['nrs'].find({}).limit(30)
     data = []
     nodes = []
     links = []
 
-    for i in range(15):
+    for i in range(30):
         for k in res:
             data.append(k)
 
@@ -31,8 +31,6 @@ def index():
 
     for index, node in enumerate(nodes):
         nodes[index]["symbolSize"] *= 2
-    #nodes = data[0]["nodes"]
-    #links = data[0]["relations"]
 
     data1 = json.dumps(nodes)
     data2 = json.dumps(links)
@@ -40,11 +38,12 @@ def index():
     category = []
     Category = []
 
-    for i in range(15):
+    for i in range(30):
         temp = {}
         category.append(data[i]["nodes"][0]["category"])
         temp["name"] = data[i]["nodes"][0]["category"]
         Category.append(temp)
+
 
     data3 = json.dumps(category)
     data4 = json.dumps(Category)
@@ -54,3 +53,12 @@ def index():
 if __name__ == '__main__':
     app.run(host='127.0.0.1')
 
+'''
+    for i in range(15):
+        for j in range(len(data[i]["nodes"])):
+            if data[i]["nodes"][j]["category"]!= "公共":
+                temp = {}
+                category.append(data[i]["nodes"][j]["category"])
+                temp["name"] = data[i]["nodes"][j]["category"]
+                Category.append(temp)
+'''
